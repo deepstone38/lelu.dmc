@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Candidature au poste de petit ami</title>
+<meta name="description" content="Formulaire de candidature au poste de petit ami. Frais de dossier : 0 €.">
+<meta name="theme-color" content="#4A0F1F">
+<meta property="og:title" content="Candidature au poste de petit ami">
+<meta property="og:description" content="Tu postules ? Frais de dossier : 0 €, mais me faire perdre mon temps = rejet immédiat.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💌</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,300;1,9..144,400;1,9..144,600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bubble:#FBDAD8;
+  --pink:#D01F3F;
+  --peach:#F08A8F;
+  --orange:#B3122F;
+  --cream:#FFF4F1;
+  --berry:#4A0B18;
+  --berry-soft:#7B2C3A;
+  --radius:28px;
+  --font-title:'Fraunces','Georgia',serif;
+  --font-body:'Manrope','Segoe UI',system-ui,-apple-system,sans-serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  min-height:100vh;
+  font-family:var(--font-body);
+  font-size:17px;
+  line-height:1.45;
+  color:var(--berry);
+  background:
+    radial-gradient(circle at 1px 1px, rgba(75,18,53,.10) 1.5px, transparent 0) 0 0/22px 22px,
+    linear-gradient(165deg,#FFC2D8 0%,#FFD3C4 55%,#FFC38F 100%);
+  background-attachment:fixed;
+}
+.wrap{width:min(560px,100% - 32px);margin:0 auto;padding:16px 0 48px}
+
+/* ---------- En-tête ---------- */
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:22px}
+.brand{font-family:var(--font-title);font-size:1.15rem}
+
+/* ---------- Boutons ---------- */
+.btn{
+  font-family:var(--font-body);font-weight:600;font-size:.98rem;letter-spacing:.01em;
+  padding:13px 26px;
+  border:1.5px solid var(--berry);border-radius:2px;
+  background:var(--berry);color:var(--cream);
+  cursor:pointer;
+  transition:background .15s ease, color .15s ease, transform .1s ease;
+}
+.btn.ghost{background:transparent;color:var(--berry)}
+.btn.small{padding:8px 18px;font-size:.9rem}
+.btn:focus-visible{outline:2px solid var(--pink);outline-offset:3px}
+.btn:disabled{opacity:.55;cursor:wait}
+@media (hover:hover){
+  .btn:not(:disabled):hover{background:var(--pink);border-color:var(--pink);color:var(--cream)}
+  .btn.ghost:not(:disabled):hover{background:var(--berry);color:var(--cream)}
+}
+.btn:not(:disabled):active{transform:translateY(1px)}
+
+/* ---------- Carte ---------- */
+.card{
+  position:relative;
+  background:var(--cream);
+  border:1px solid rgba(58,20,32,.18);
+  border-radius:var(--radius);
+  box-shadow:0 18px 40px -22px rgba(58,20,32,.35);
+  padding:32px 24px 26px;
+}
+
+/* ---------- Accueil ---------- */
+.hero h1{
+  font-family:var(--font-title);
+  font-weight:400;
+  font-size:clamp(1.9rem,8vw,2.5rem);
+  line-height:1.25;
+  margin:14px 0 6px;
+  text-wrap:balance;
+}
+.hero p{margin:10px 0}
+.stamp{
+  position:absolute;top:-20px;right:14px;
+  padding:6px 16px;
+  background:var(--orange);
+  border:3px solid var(--berry);border-radius:14px;
+  font-family:var(--font-title);font-size:1rem;line-height:1.3;
+  transform:rotate(-7deg);
+  box-shadow:3px 3px 0 var(--berry);
+}
+.stamp.thud{animation:thud .55s cubic-bezier(.2,.9,.3,1.2) .25s both}
+@keyframes thud{
+  0%{transform:rotate(-7deg) scale(2);opacity:0}
+  55%{opacity:1}
+  100%{transform:rotate(-7deg) scale(1);opacity:1}
+}
+.sheet{margin:18px 0 20px;padding:4px 14px;background:#fff;border:2.5px dashed var(--berry);border-radius:18px}
+.sheet div{display:flex;gap:12px;padding:9px 0;border-bottom:2px dotted rgba(75,18,53,.25)}
+.sheet div:last-child{border-bottom:0}
+.sheet dt{flex:0 0 7.4rem;font-weight:700}
+.sheet dd{margin:0}
+.fine{font-size:.92rem;color:var(--berry-soft)}
+
+/* ---------- Progression ---------- */
+.progress{height:18px;background:#fff;border:2.5px solid var(--berry);border-radius:999px;overflow:hidden}
+.bar{position:relative;height:100%;background:linear-gradient(90deg,var(--pink),var(--orange));border-right:2.5px solid var(--berry);transition:width .4s ease}
+.ptxt{margin:6px 4px 16px;font-size:.92rem;color:var(--berry-soft)}
+
+/* ---------- Étapes ---------- */
+.stitle{font-family:var(--font-title);font-weight:400;font-size:1.65rem;line-height:1.3;margin:0 0 4px;text-wrap:balance}
+.stitle:focus{outline:none}
+.ssub{margin:0 0 20px;color:var(--berry-soft)}
+.warn{margin:0 0 20px;padding:10px 14px;background:#FFE0BF;border:2.5px dashed var(--berry);border-radius:16px;font-weight:600}
+
+.q{margin:0 0 24px;padding:0;border:0;min-width:0}
+.qlabel{display:block;margin:0 0 10px;padding:0;font-weight:600}
+.req{color:#D6205F}
+
+.field{
+  display:block;width:100%;
+  padding:11px 14px;
+  font:inherit;font-size:1rem;color:var(--berry);
+  background:#fff;
+  border:2.5px solid var(--berry);border-radius:16px;
+}
+.field:focus{outline:3px solid var(--orange);outline-offset:2px}
+textarea.field{min-height:96px;resize:vertical}
+.field.extra{margin-top:10px}
+
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{position:relative;display:block}
+.chip input{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:pointer}
+.chip span{
+  display:block;padding:9px 16px;
+  background:#fff;
+  border:2.5px solid var(--berry);border-radius:999px;
+  font-weight:500;line-height:1.25;
+  transition:background .12s ease;
+}
+@media (hover:hover){.chip:hover span{background:var(--bubble)}}
+.chip input:checked + span{background:var(--pink);font-weight:700;box-shadow:2px 2px 0 var(--berry)}
+.chip input:focus-visible + span{outline:3px solid var(--orange);outline-offset:3px}
+
+.scale{display:flex;gap:3px}
+.scale label{position:relative;flex:1;min-width:0}
+.scale input{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:pointer}
+.scale span{
+  display:grid;place-items:center;height:42px;
+  background:#fff;
+  border:2px solid var(--berry);border-radius:10px;
+  font-weight:600;font-size:.95rem;
+}
+@media (hover:hover){.scale label:hover span{background:var(--bubble)}}
+.scale input:checked + span{background:var(--orange);font-weight:700}
+.scale input:focus-visible + span{outline:3px solid var(--pink);outline-offset:2px}
+.cap{display:flex;justify-content:space-between;margin-top:4px;font-size:.85rem;color:var(--berry-soft)}
+
+.consent{display:flex;align-items:flex-start;gap:12px;margin:6px 0 16px;padding:12px 14px;background:#fff;border:2.5px solid var(--berry);border-radius:16px;cursor:pointer}
+.consent input{flex:0 0 auto;width:24px;height:24px;margin:2px 0 0;accent-color:var(--pink)}
+.consent input:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+
+.msg{min-height:1.4em;margin:0 0 10px;font-weight:600;color:#B3123F}
+.alert{margin:0 0 14px;padding:12px 14px;background:#FFD6DF;border:2.5px solid var(--berry);border-radius:16px;font-weight:500}
+.nav{display:flex;gap:12px;margin-top:6px}
+.nav .primary{flex:1}
+
+/* ---------- Merci ---------- */
+.thanks h2{font-family:var(--font-title);font-weight:400;font-size:2rem;line-height:1.25;margin:14px 0 8px;text-wrap:balance}
+.thanks .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}
+
+/* ---------- Toast ---------- */
+.toast{
+  position:fixed;left:50%;bottom:24px;
+  transform:translate(-50%,30px);opacity:0;pointer-events:none;
+  padding:10px 20px;
+  background:var(--berry);color:var(--cream);
+  border-radius:999px;font-weight:600;
+  transition:opacity .2s ease, transform .2s ease;
+  z-index:10;
+}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none !important;transition:none !important}
+}
+
+/* =====================================================================
+   DIRECTION ARTISTIQUE : chic et sensuel (rose poudré, saumon, cuivre)
+   ===================================================================== */
+body{
+  font-size:16px;
+  line-height:1.55;
+  background:linear-gradient(168deg,#F7DDD3 0%,#F1BFAF 55%,#E8A48D 100%);
+  background-attachment:fixed;
+}
+.brand{font-family:var(--font-title);font-style:italic;font-weight:500;font-size:1.35rem;letter-spacing:.01em}
+
+.hero h1{font-weight:500;font-size:clamp(2.3rem,9vw,3.1rem);line-height:1.08;letter-spacing:-.01em;margin:8px 0 18px}
+.stitle,.thanks h2{font-weight:500;letter-spacing:-.005em}
+.stitle{font-size:2rem;line-height:1.15}
+.thanks h2{font-size:2.5rem;line-height:1.1}
+.ssub{font-size:.98rem}
+
+.stamp{
+  top:-15px;right:20px;
+  padding:5px 16px;
+  background:var(--cream);color:var(--pink);
+  border:1.5px solid var(--pink);border-radius:2px;
+  font-family:var(--font-title);font-style:italic;font-weight:500;font-size:1.05rem;
+  box-shadow:none;
+  transform:rotate(-4deg);
+}
+@keyframes thud{
+  0%{transform:rotate(-4deg) scale(1.6);opacity:0}
+  60%{opacity:1}
+  100%{transform:rotate(-4deg) scale(1);opacity:1}
+}
+
+.sheet{background:transparent;border:0;border-top:1px solid rgba(58,20,32,.25);border-bottom:1px solid rgba(58,20,32,.25);border-radius:0;padding:2px 0;margin:6px 0 22px}
+.sheet div{border-bottom:1px solid rgba(58,20,32,.12)}
+.sheet dt{font-family:var(--font-title);font-size:1.1rem;font-weight:600;font-style:italic;color:var(--pink)}
+
+.timebox{margin:0 0 14px;padding:12px 16px;background:rgba(201,83,107,.09);border-left:3px solid var(--pink);border-radius:0 3px 3px 0}
+.timebox strong{font-family:var(--font-title);font-size:1.25rem;font-weight:600;display:block;line-height:1.2;margin-bottom:2px}
+
+.progress{height:5px;border:0;background:rgba(58,20,32,.15)}
+.bar{border-right:0;background:linear-gradient(90deg,var(--peach),var(--pink))}
+.ptxt{font-size:.88rem;letter-spacing:.02em}
+
+.warn{background:rgba(201,83,107,.09);border:0;border-left:3px solid var(--pink);border-radius:0 3px 3px 0;font-weight:600}
+.qlabel{font-weight:600}
+.req{color:var(--pink)}
+
+.field{border:1px solid rgba(58,20,32,.45);border-radius:3px;background:#fff}
+.field:focus{outline:2px solid var(--pink);outline-offset:1px;border-color:var(--pink)}
+
+.chip span{border:1px solid rgba(58,20,32,.45);border-radius:3px;background:#fff;font-weight:500;padding:9px 15px}
+.chip input:checked + span{background:var(--berry);color:var(--cream);border-color:var(--berry);box-shadow:none;font-weight:600}
+.chip input:focus-visible + span{outline:2px solid var(--pink);outline-offset:2px}
+@media (hover:hover){.chip:hover span{background:var(--bubble)}}
+
+.scale span{border:1px solid rgba(58,20,32,.45);border-radius:3px}
+.scale input:checked + span{background:var(--berry);color:var(--cream);border-color:var(--berry)}
+.scale input:focus-visible + span{outline:2px solid var(--pink);outline-offset:2px}
+@media (hover:hover){.scale label:hover span{background:var(--bubble)}}
+
+.consent{border:1px solid rgba(58,20,32,.45);border-radius:3px}
+.alert{background:rgba(201,83,107,.12);border:0;border-left:3px solid var(--pink);border-radius:0 3px 3px 0}
+.msg{color:#A3223F}
+.toast{border-radius:3px}
+
+/* =====================================================================
+   VERSION ROUGE : sensuelle, féminine, arrondie, avec imprimé fleuri
+   ===================================================================== */
+body{
+  background-color:#4A0F1F;
+  background-image:none;
+  background-attachment:scroll;
+  color:var(--berry);
+}
+.top .brand{color:var(--cream)}
+.top .btn.ghost{color:var(--cream);border-color:var(--cream)}
+.top .btn:focus-visible{outline-color:var(--cream)}
+@media (hover:hover){
+  .top .btn.ghost:not(:disabled):hover{background:var(--cream);color:var(--berry);border-color:var(--cream)}
+}
+.ptxt{color:#FBD9D5}
+.progress{background:rgba(255,244,241,.28)}
+.bar{background:linear-gradient(90deg,#FBDAD8,#FFF4F1)}
+
+.card{border:0;border-radius:var(--radius);box-shadow:0 24px 50px -22px rgba(0,0,0,.7);padding:34px 24px 26px}
+
+.hero h1{font-weight:300;font-size:clamp(2.3rem,9.5vw,3.2rem);line-height:1.08;letter-spacing:-.015em}
+.stitle,.thanks h2{font-weight:300;letter-spacing:-.01em}
+.brand,.sheet dt,.stamp{font-weight:400}
+
+.stamp{border-radius:999px;padding:6px 20px;border:1.5px solid var(--pink);color:var(--pink);background:var(--cream)}
+.sheet{border-color:rgba(208,31,63,.28)}
+.sheet div{border-bottom-color:rgba(208,31,63,.16)}
+
+.timebox,.warn,.alert{border:1px solid rgba(208,31,63,.35);border-left-width:1px;border-radius:20px;background:rgba(208,31,63,.07);padding:12px 18px}
+.timebox strong{font-weight:600;color:var(--pink)}
+
+.btn{border-radius:999px;background:var(--pink);border-color:var(--pink);color:var(--cream);padding:13px 28px;box-shadow:0 8px 18px -8px rgba(208,31,63,.7)}
+.btn.ghost{background:transparent;color:var(--pink);border-color:var(--pink);box-shadow:none}
+@media (hover:hover){
+  .btn:not(:disabled):hover{background:var(--berry);border-color:var(--berry);color:var(--cream)}
+  .btn.ghost:not(:disabled):hover{background:var(--pink);border-color:var(--pink);color:var(--cream)}
+}
+.btn.small{padding:8px 20px}
+
+.field{border-radius:18px;border:1px solid rgba(74,11,24,.35);background:#fff}
+.field:focus{border-color:var(--pink);outline:2px solid rgba(208,31,63,.45)}
+.chip span{border-radius:999px;border:1px solid rgba(74,11,24,.3);padding:9px 18px}
+.chip input:checked + span{background:var(--pink);border-color:var(--pink);color:var(--cream)}
+@media (hover:hover){.chip:hover span{background:var(--bubble)}}
+.chip input:checked + span:hover{background:var(--pink)}
+.scale span{border-radius:12px;border:1px solid rgba(74,11,24,.3)}
+.scale input:checked + span{background:var(--pink);border-color:var(--pink);color:var(--cream)}
+.consent{border-radius:20px;border:1px solid rgba(74,11,24,.3)}
+.msg{color:#B3122F}
+.toast{background:var(--cream);color:var(--berry);border-radius:999px;box-shadow:0 10px 30px rgba(40,0,10,.4)}
+</style>
+</head>
+
+<body>
+<div class="wrap">
+  <header class="top">
+    <span class="brand">cœur &amp; bonheur</span>
+    <button class="btn ghost small" id="shareBtn" type="button">Partager</button>
+  </header>
+  <main id="app" aria-live="polite">
+    <noscript><div class="card">Ce formulaire a besoin de JavaScript pour fonctionner. Active-le dans ton navigateur puis recharge la page.</div></noscript>
+  </main>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+'use strict';
+
+/* =====================================================================
+   RÉGLAGES
+   ---------------------------------------------------------------------
+   Les réponses sont envoyées par Web3Forms à l'adresse mail liée à
+   chaque clé. Pour recevoir aussi les réponses sur une 2e adresse :
+   crée une 2e clé sur web3forms.com avec cette adresse, puis ajoute-la
+   dans la liste ci-dessous (entre guillemets, séparée par une virgule).
+   ===================================================================== */
+const ACCESS_KEYS = [
+  "e35ddff7-b099-4702-93c3-f910006e26af"
+];
+const ENDPOINT = "https://api.web3forms.com/submit";
+
+/* =====================================================================
+   QUESTIONS
+   ===================================================================== */
+const STEPS = [
+  { id:'perso', emoji:'📝', title:'Informations personnelles', sub:'On commence par les bases.',
+    questions:[
+      {id:'nom', type:'text', label:'Nom complet', required:true, ac:'name', ph:'Prénom et nom'},
+      {id:'age', type:'number', label:'Âge'},
+      {id:'origine', type:'text', label:"D'où viens-tu ?"},
+      {id:'profession', type:'text', label:'Profession'},
+      {id:'statut', type:'choice', label:'Statut relationnel', options:[
+        'Célibataire', "C'est compliqué", '« On est quasiment séparés »',
+        {label:'Autre', ask:'text', ph:'Précise…'}]},
+      {id:'enfants', type:'choice', label:'As-tu des enfants ?', options:[
+        'Non', {label:'Oui', ask:'number', ph:'Combien ?'}]},
+      {id:'copine', type:'choice', label:'As-tu actuellement une copine, une femme, ou une « situationship » ?',
+        options:['Non','Oui',"C'est compliqué"]}
+    ]},
+  { id:'historique', emoji:'📖', title:'Historique relationnel', sub:'On fouille un peu le passé (gentiment).',
+    questions:[
+      {id:'duree', type:'text', label:'Ta dernière relation a duré combien de temps ?'},
+      {id:'fin', type:'textarea', label:"Pourquoi s'est-elle terminée ?"},
+      {id:'passe', type:'choice', label:'Es-tu complètement passé à autre chose ?', options:[
+        'Oui','Non','Je regarde encore son profil de temps en temps']},
+      {id:'ex', type:'choice', label:'Communiques-tu encore avec ton ex ?', options:[
+        'Non', {label:'Oui', ask:'text', ph:'Explique…'}]},
+      {id:'appris', type:'textarea', label:"Qu'est-ce que ta relation précédente t'a appris ?"}
+    ]},
+  { id:'emotions', emoji:'🧠', title:'Intelligence émotionnelle', sub:'Là, on veut des réponses sincères, pas des réponses de LinkedIn.',
+    questions:[
+      {id:'colere', type:'textarea', label:'Quand tu es en colère contre ton ou ta partenaire, tu fais quoi normalement ?'},
+      {id:'blesse', type:'textarea', label:"Si ta copine te dit que quelque chose que tu as fait l'a blessée, tu ferais quoi ?"},
+      {id:'contrarie', type:'choice', label:'Sais-tu communiquer quand tu es contrarié, au lieu de disparaître ?', options:[
+        'Absolument', "J'ai besoin de temps, mais je communique", 'Je disparais 3 jours ouvrés']},
+      {id:'desaccords', type:'textarea', label:'Comment gères-tu les désaccords ?'}
+    ]},
+  { id:'comm', emoji:'📱', title:'Test de communication', sub:'Le téléphone, c\'est pas juste pour scroller.',
+    questions:[
+      {id:'occupe', type:'choice', label:'Ta copine t\'envoie un message et tu es occupé. Tu fais quoi ?', options:[
+        "Je l'ignore jusqu'à ce que je sois libre",
+        'Je lui dis que je suis occupé et je réponds dès que possible',
+        'J\'envoie un rapide « Je suis occupé, je t\'écris vite ❤ »',
+        "Ça dépend de mon humeur"]},
+      {id:'frequence', type:'choice', label:'À quelle fréquence aimes-tu communiquer avec ton ou ta partenaire ?', options:[
+        'Toute la journée','Tout au long de la journée','Matin et soir',"Quand j'y pense"]},
+      {id:'appels', type:'choice', label:'Es-tu à l\'aise avec les appels et les appels vidéo ?', options:[
+        'Oui','Non','Ça dépend qui appelle']}
+    ]},
+  { id:'redflags', emoji:'🚩', title:'Déclaration de drapeaux rouges', warn:'Réponds HONNÊTEMENT. Mentir dans cette section entraînera le rejet immédiat de la candidature.',
+    questions:[
+      {id:'trompe', type:'choice', label:'Trompes-tu ?', options:['Non','Parfois','Je pense que « ça ne compte pas si... »']},
+      {id:'autresrel', type:'choice', label:'Entretiens-tu d\'autres relations pendant que tu es en couple ?', options:['Non','Parfois',"J'aime juste l'attention"]},
+      {id:'dragues', type:'choice', label:'Dragues-tu d\'autres femmes ?', options:['Non','Oui','Seulement quand je m\'ennuie']},
+      {id:'colereprob', type:'choice', label:'As-tu des problèmes de gestion de la colère ?', options:['Non','Parfois','Oui — mais je travaille dessus']},
+      {id:'mens', type:'choice', label:'Mens-tu ?', options:['Jamais','Parfois','Tout le monde ment']},
+      {id:'redflag', type:'textarea', label:'Quel est ton plus gros red flag ?'}
+    ]},
+  { id:'devoirs', emoji:'💪', title:'Les devoirs du petit copain', sub:'Note-toi de 1 à 10 sur chacun de ces points (1 = pas terrible, 10 = au top). Sois honnête.',
+    questions:[
+      {id:'notes', type:'ratings', items:['Communication','Fidélité','Affection','Romantisme','Patience','Soutien émotionnel','Constance','Me faire rire','Organisation des rendez-vous']},
+      {id:'bon', type:'textarea', label:"Qu'est-ce qu'être un bon copain signifie pour toi ?"},
+      {id:'aimee', type:'textarea', label:'Que ferais-tu pour que ta copine se sente aimée et appréciée ?'}
+    ]},
+  { id:'finance', emoji:'💸', title:'Vérification financière et de responsabilité', sub:'On parle sous, mais sans jugement.',
+    questions:[
+      {id:'revenu', type:'choice', label:'As-tu un travail ou un revenu ?', options:['Oui','Non','En recherche active']},
+      {id:'sorties', type:'choice', label:"Comment te sens-tu à l'idée de payer les sorties ?", options:[
+        'Ça ne me dérange pas','On peut alterner','Toujours 50/50','Ma copine peut payer']},
+      {id:'resp', type:'choice', label:'Es-tu responsable financièrement ?', options:[
+        'Oui',"J'essaie de mon mieux",'Mon compte en banque a besoin d\'une prière']}
+    ]},
+  { id:'amour', emoji:'💗', title:'Amour et affection', sub:'La partie douce.',
+    questions:[
+      {id:'langage', type:'multi', label:"Quel est ton langage de l'amour ? (plusieurs choix possibles)", options:[
+        'Paroles valorisantes','Moments de qualité','Contact physique','Actes de service','Cadeaux','Tout ça à la fois']},
+      {id:'affectueux', type:'choice', label:'Es-tu quelqu\'un d\'affectueux ?', options:[
+        'Très affectueux','Modérément affectueux','Je suis timide','Ne me touche pas, s\'il te plaît']},
+      {id:'rassurer', type:'choice', label:'Aimes-tu rassurer ton ou ta partenaire ?', options:['Oui','Non','Seulement si nécessaire']},
+      {id:'anxieuse', type:'textarea', label:'Comment rassurerais-tu ta copine si elle se sentait anxieuse ?'}
+    ]},
+  { id:'jalousie', emoji:'👀', title:'Jalousie et limites', sub:'Les frontières, c\'est sexy.',
+    questions:[
+      {id:'jaloux', type:'scale', label:'À combien évalues-tu ta jalousie, de 1 à 10 ?', lo:'Zen', hi:'Volcan'},
+      {id:'telephone', type:'choice', label:'Irais-tu fouiller dans le téléphone de ta copine ?', options:['Non','Si j\'ai une raison','Oui, je dois tout savoir']},
+      {id:'amis', type:'choice', label:'Penses-tu que ta copine devrait avoir des amis hommes ?', options:['Oui','Non',"Ça dépend de l'amitié"]},
+      {id:'limites', type:'textarea', label:'Quelles limites attends-tu dans une relation ?'}
+    ]},
+  { id:'intentions', emoji:'🎯', title:'Intentions', sub:'Là, on veut savoir où tu vas.',
+    questions:[
+      {id:'pourquoi', type:'textarea', label:'Pourquoi postules-tu pour ce poste ?'},
+      {id:'recherche', type:'choice', label:'Que recherches-tu ?', options:[
+        'Relation sérieuse','Quelque chose de casual','Amitié','Mariage éventuellement','Je ne sais pas encore','Je la trouve juste mignonne']},
+      {id:'futur', type:'textarea', label:'Où te vois-tu dans 2 ou 3 ans ?'},
+      {id:'engagement', type:'textarea', label:"Que signifie l'engagement pour toi ?"},
+      {id:'pret', type:'choice', label:'Es-tu prêt à être fidèle, honnête, constant et intentionnel ?', options:['Oui','Non','Je dois y réfléchir']}
+    ]},
+  { id:'final', emoji:'🎤', title:'Entretien final', sub:'Dernière ligne droite avant le verdict. Prends ton temps.',
+    questions:[
+      {id:'f1', type:'textarea', label:'Pourquoi devrais-je te choisir plutôt que les autres candidats ?'},
+      {id:'f2', type:'textarea', label:'Quelle est une chose que tu peux me promettre en tant que copain ?'},
+      {id:'f3', type:'textarea', label:"Qu'est-ce que tu ne ferais JAMAIS à ta copine ?"},
+      {id:'f4', type:'textarea', label:"Quelle est ton idée d'un rendez-vous parfait ?"},
+      {id:'f5', type:'textarea', label:'Si on s\'était disputés, que ferais-tu avant d\'aller dormir ?'},
+      {id:'f6', type:'textarea', label:'Si je passe une journée horrible, comment l\'améliorerais-tu ?'},
+      {id:'f7', type:'textarea', label:'Quelles sont tes intentions avec moi, précisément ?'},
+      {id:'f8', type:'textarea', label:'Dis-moi une chose sur toi que je devrais savoir avant d\'étudier ta candidature.'}
+    ]},
+  { id:'last', emoji:'💌', title:'Le dernier mot', sub:'Une dernière question, puis tu envoies.', last:true,
+    questions:[
+      {id:'dernier', type:'textarea', label:"Si tu deviens mon copain, à quoi puis-je m'attendre de ta part qui me fera sentir en sécurité, aimée, respectée et valorisée ?"}
+    ]}
+];
+const TOTAL = STEPS.length;
+
+/* =====================================================================
+   OUTILS
+   ===================================================================== */
+const app = document.getElementById('app');
+const mem = {};
+const store = {
+  get(k){ try{ return localStorage.getItem(k); }catch(e){ return mem[k] || null; } },
+  set(k,v){ try{ localStorage.setItem(k,v); }catch(e){ mem[k] = v; } },
+  del(k){ try{ localStorage.removeItem(k); }catch(e){ delete mem[k]; } }
+};
+const SENT_KEY = 'fdc_sent_v1';
+const DRAFT_KEY = 'fdc_draft_v1';
+const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const opt = o => typeof o === 'string' ? {label:o} : o;
+const allQuestions = () => STEPS.flatMap(s => s.questions);
+const findQ = id => allQuestions().find(q => q.id === id);
+
+const state = { step:0, a:{}, consent:false, busy:false, error:false, done:false, doneName:'', hp:'' };
+
+/* Réinitialisation pour tes tests : ajoute ?reset à la fin du lien */
+if (/[?&]reset\b/.test(location.search)) {
+  store.del(SENT_KEY); store.del(DRAFT_KEY);
+  try{ history.replaceState(null,'',location.pathname); }catch(e){}
+}
+try{
+  const sent = store.get(SENT_KEY);
+  if (sent) {
+    state.done = true;
+    state.doneName = (JSON.parse(sent).name || '');
+  } else {
+    const d = JSON.parse(store.get(DRAFT_KEY) || 'null');
+    if (d && d.a) { state.a = d.a; state.step = Math.min(Math.max(d.step||0,0), TOTAL); }
+  }
+}catch(e){}
+
+function save(){ store.set(DRAFT_KEY, JSON.stringify({a:state.a, step:state.step})); }
+
+/* =====================================================================
+   RENDU DES QUESTIONS
+   ===================================================================== */
+function scaleHTML(id, label, lo, hi){
+  const v = state.a[id];
+  let boxes = '';
+  for (let i=1;i<=10;i++){
+    boxes += `<label><input type="radio" name="${id}" data-kind="scale" data-id="${id}" value="${i}" ${v===i?'checked':''}><span>${i}</span></label>`;
+  }
+  const cap = (lo||hi) ? `<div class="cap" aria-hidden="true"><span>${esc(lo||'')}</span><span>${esc(hi||'')}</span></div>` : '';
+  return `<fieldset class="q" data-q="${id}"><legend class="qlabel">${esc(label)}</legend><div class="scale">${boxes}</div>${cap}</fieldset>`;
+}
+
+function qHTML(q){
+  const v = state.a[q.id];
+  const star = q.required ? '<span class="req" aria-hidden="true"> *</span>' : '';
+  const lab = esc(q.label || '') + star;
+
+  if (q.type === 'text' || q.type === 'number'){
+    const num = q.type === 'number';
+    return `<div class="q" data-q="${q.id}"><label class="qlabel" for="f-${q.id}">${lab}</label>
+      <input class="field" id="f-${q.id}" data-kind="text" data-id="${q.id}" type="${num?'number':'text'}"
+        ${num?'inputmode="numeric" min="0"':''} ${q.ac?`autocomplete="${q.ac}"`:''}
+        ${q.ph?`placeholder="${esc(q.ph)}"`:''} ${q.required?'required':''} value="${esc(v||'')}"></div>`;
+  }
+  if (q.type === 'textarea'){
+    return `<div class="q" data-q="${q.id}"><label class="qlabel" for="f-${q.id}">${lab}</label>
+      <textarea class="field" id="f-${q.id}" data-kind="text" data-id="${q.id}" rows="3">${esc(v||'')}</textarea></div>`;
+  }
+  if (q.type === 'choice' || q.type === 'multi'){
+    const multi = q.type === 'multi';
+    const selected = multi ? (v||[]) : [v];
+    const chips = q.options.map(o => {
+      o = opt(o);
+      return `<label class="chip"><input type="${multi?'checkbox':'radio'}" name="${q.id}" data-kind="${q.type}" data-id="${q.id}" data-val="${esc(o.label)}" ${selected.includes(o.label)?'checked':''}><span>${esc(o.label)}</span></label>`;
+    }).join('');
+    let extra = '';
+    if (!multi){
+      const chosen = q.options.map(opt).find(o => o.label === v);
+      if (chosen && chosen.ask){
+        extra = `<input class="field extra" data-kind="extra" data-id="${q.id}" type="${chosen.ask}"
+          ${chosen.ask==='number'?'inputmode="numeric" min="0"':''}
+          placeholder="${esc(chosen.ph||'')}" aria-label="${esc(chosen.ph||chosen.label)}" value="${esc(state.a[q.id+'__x']||'')}">`;
+      }
+    }
+    return `<fieldset class="q" data-q="${q.id}"><legend class="qlabel">${lab}</legend><div class="chips">${chips}</div>${extra}</fieldset>`;
+  }
+  if (q.type === 'scale') return scaleHTML(q.id, q.label, q.lo, q.hi);
+  if (q.type === 'ratings') return q.items.map((it,i) => scaleHTML(q.id+'_'+i, it)).join('');
+  return '';
+}
+
+/* =====================================================================
+   ÉCRANS
+   ===================================================================== */
+function welcomeHTML(){
+  return `<section class="card hero">
+    <div class="stamp thud">Candidatures ouvertes</div>
+    <h1 data-focus tabindex="-1">Candidature au poste de petit ami</h1>
+    <dl class="sheet">
+      <div><dt>Poste</dt><dd>Petit ami</dd></div>
+      <div><dt>Département</dt><dd>Cœur et bonheur</dd></div>
+      <div><dt>Contrat</dt><dd>Longue durée, renouvelable</dd></div>
+      <div><dt>Frais de dossier</dt><dd>0 €, mais me faire perdre mon temps entraînera un rejet immédiat.</dd></div>
+    </dl>
+    <p class="timebox"><strong>Prévois 5 à 10 minutes.</strong> Installe-toi au calme avant de commencer : les réponses courtes ne suffiront pas, et je le verrai.</p>
+    <p>Remplis ce formulaire en toute honnêteté (oui, ça se voit quand tu triches).</p>
+    <p class="fine">Tes réponses se sauvegardent toutes seules sur ton appareil : tu peux fermer la page et revenir plus tard.</p>
+    <div class="nav"><button class="btn primary" type="button" data-act="start">Je postule</button></div>
+  </section>`;
+}
+
+function stepHTML(){
+  const s = STEPS[state.step-1];
+  const pct = Math.round(state.step / TOTAL * 100);
+  let html = `<div class="progress" role="progressbar" aria-label="Progression" aria-valuemin="1" aria-valuemax="${TOTAL}" aria-valuenow="${state.step}"><div class="bar" style="width:${pct}%"></div></div>
+    <p class="ptxt">Étape ${state.step} sur ${TOTAL}</p>
+    <section class="card">
+      <h2 class="stitle" data-focus tabindex="-1">${esc(s.title)}</h2>
+      ${s.sub?`<p class="ssub">${esc(s.sub)}</p>`:'<p class="ssub"></p>'}
+      ${s.warn?`<p class="warn">🚩 ${esc(s.warn)}</p>`:''}
+      <form id="form" novalidate onsubmit="return false">
+        ${s.questions.map(qHTML).join('')}`;
+
+  if (s.last){
+    html += `<label class="consent"><input type="checkbox" id="consent" ${state.consent?'checked':''}>
+        <span>Je certifie que mes réponses sont sincères et j'accepte qu'elles soient envoyées, avec mon nom, à l'organisatrice du questionnaire.</span></label>
+      <div class="hp" aria-hidden="true"><label>Ne pas remplir<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>`;
+    if (state.error){
+      html += `<div class="alert" role="alert"><strong>L'envoi n'a pas marché.</strong> Tes réponses sont gardées. Vérifie ta connexion internet puis clique sur « Réessayer l'envoi ».${state.errMsg?`<br><span class="fine">Détail technique : ${esc(state.errMsg)}</span>`:''}</div>`;
+    }
+  }
+  html += `<p class="msg" id="msg" role="alert"></p>
+    <div class="nav">
+      <button class="btn ghost" type="button" data-act="back" ${state.busy?'disabled':''}>Retour</button>`;
+  if (s.last){
+    html += `<button class="btn primary" type="button" data-act="send" ${state.busy?'disabled':''}>${state.busy?'Envoi en cours…':(state.error?"Réessayer l'envoi":'Envoyer ma candidature')}</button>`;
+  } else {
+    html += `<button class="btn primary" type="button" data-act="next">Suivant</button>`;
+  }
+  html += `</div></form></section>`;
+  return html;
+}
+
+function thanksHTML(){
+  const first = (state.doneName || '').trim().split(/\s+/)[0];
+  return `<section class="card thanks">
+    <div class="stamp thud">Dossier reçu ✓</div>
+    <h2 data-focus tabindex="-1">Candidature envoyée !</h2>
+    <p>${first?`Merci ${esc(first)}, `:'Merci, '}ton dossier est bien parti. Les profils retenus seront contactés pour la suite : test de constance, évaluation de la communication et épreuve de fidélité 😌</p>
+    <p class="fine">Une seule candidature par personne : ton dossier est déjà dans la pile.</p>
+    <div class="actions"><button class="btn primary" type="button" data-act="share">Partager le formulaire</button></div>
+  </section>`;
+}
+
+function render(moved){
+  app.innerHTML = state.done ? thanksHTML() : (state.step === 0 ? welcomeHTML() : stepHTML());
+  if (moved){
+    const f = app.querySelector('[data-focus]');
+    if (f) f.focus({preventScroll:true});
+    window.scrollTo({top:0, behavior: reduceMotion ? 'auto' : 'smooth'});
+  }
+}
+
+/* =====================================================================
+   INTERACTIONS
+   ===================================================================== */
+function setMsg(t){ const m = document.getElementById('msg'); if (m) m.textContent = t; }
+
+function refreshQ(id){
+  const q = findQ(id);
+  const el = app.querySelector('[data-q="'+id+'"]');
+  if (!q || !el) return;
+  el.outerHTML = qHTML(q);
+  const ex = app.querySelector('[data-q="'+id+'"] .extra');
+  if (ex) ex.focus();
+  else { const c = app.querySelector('[data-q="'+id+'"] input:checked'); if (c) c.focus(); }
+}
+
+app.addEventListener('input', e => {
+  const t = e.target, k = t.dataset.kind;
+  if (k === 'text'){ state.a[t.dataset.id] = t.value; save(); }
+  else if (k === 'extra'){ state.a[t.dataset.id+'__x'] = t.value; save(); }
+  else if (t.name === 'website'){ state.hp = t.value; }
+});
+
+app.addEventListener('change', e => {
+  const t = e.target, k = t.dataset.kind, id = t.dataset.id;
+  if (k === 'choice'){
+    state.a[id] = t.dataset.val; delete state.a[id+'__x']; save(); refreshQ(id);
+  } else if (k === 'multi'){
+    const arr = (state.a[id] || []).filter(x => x !== t.dataset.val);
+    if (t.checked) arr.push(t.dataset.val);
+    state.a[id] = arr; save();
+  } else if (k === 'scale'){
+    state.a[id] = Number(t.value); save();
+  } else if (t.id === 'consent'){
+    state.consent = t.checked;
+    if (t.checked) setMsg('');
+  }
+});
+
+app.addEventListener('click', e => {
+  const b = e.target.closest('[data-act]');
+  if (!b) return;
+  const act = b.dataset.act;
+  if (act === 'start'){ state.step = 1; save(); render(true); }
+  else if (act === 'back'){ state.step = Math.max(1, state.step-1); save(); render(true); }
+  else if (act === 'next'){ next(); }
+  else if (act === 'send'){ submit(); }
+  else if (act === 'share'){ share(); }
+});
+
+function next(){
+  const s = STEPS[state.step-1];
+  const missing = s.questions.find(q => q.required && !String(state.a[q.id]||'').trim());
+  if (missing){
+    setMsg('Il faut au moins ton nom pour continuer 💕');
+    const f = document.getElementById('f-'+missing.id);
+    if (f) f.focus();
+    return;
+  }
+  state.step++; save(); render(true);
+}
+
+/* =====================================================================
+   ENVOI
+   ===================================================================== */
+function collect(){
+  const out = [['Envoyé le', new Date().toLocaleString('fr-FR')]];
+  let n = 0;
+  const num = () => String(++n).padStart(2,'0');
+  const none = '(pas de réponse)';
+  STEPS.forEach(s => {
+    out.push(['── '+s.title+' ──', s.emoji]);
+    s.questions.forEach(q => {
+      const v = state.a[q.id];
+      if (q.type === 'ratings'){
+        q.items.forEach((it,i) => {
+          const r = state.a[q.id+'_'+i];
+          out.push([num()+'. '+it+' (note /10)', r ? r+' / 10' : none]);
+        });
+      } else if (q.type === 'scale'){
+        out.push([num()+'. '+q.label, v ? v+' / 10' : none]);
+      } else if (q.type === 'multi'){
+        out.push([num()+'. '+q.label, (v && v.length) ? v.join(', ') : none]);
+      } else if (q.type === 'choice'){
+        const x = (state.a[q.id+'__x'] || '').trim();
+        out.push([num()+'. '+q.label, v ? (x ? v+' — '+x : v) : none]);
+      } else {
+        out.push([num()+'. '+q.label, (v && String(v).trim()) ? String(v).trim() : none]);
+      }
+    });
+  });
+  return out;
+}
+
+async function sendTo(key, fields, name){
+  const body = { access_key:key, subject:'Nouvelle candidature – '+name, from_name:'Formulaire petit ami' };
+  fields.forEach(([k,v]) => { body[k] = v; });
+  const r = await fetch(ENDPOINT, {
+    method:'POST',
+    headers:{'Content-Type':'application/json','Accept':'application/json'},
+    body:JSON.stringify(body)
+  });
+  let j = {};
+  try{ j = await r.json(); }catch(e){}
+  if (j && j.success === true) return true;
+  throw new Error((j && j.message) ? j.message : 'Erreur '+r.status);
+}
+
+async function submit(){
+  if (state.busy) return;
+  const nameVal = String(state.a.nom || '').trim();
+  if (!nameVal){
+    state.step = 1; render(true); setMsg('Il faut ton nom pour envoyer 💕'); return;
+  }
+  if (!state.consent){
+    setMsg('Coche la case pour pouvoir envoyer ta candidature.');
+    const c = document.getElementById('consent'); if (c) c.focus();
+    return;
+  }
+  if (state.hp){ finish(nameVal); return; }   // anti-spam : on fait semblant
+
+  state.busy = true; state.error = false; render(false);
+  const results = await Promise.allSettled(ACCESS_KEYS.map(k => sendTo(k, collect(), nameVal)));
+  const ok = results.some(r => r.status === 'fulfilled' && r.value === true);
+  state.busy = false;
+  state.errMsg = ok ? '' : ((results.map(r => r.reason && r.reason.message).filter(Boolean)[0]) || 'Connexion impossible');
+  if (ok){ finish(nameVal); }
+  else { state.error = true; render(false); }
+}
+
+function finish(name){
+  store.set(SENT_KEY, JSON.stringify({name:name}));
+  store.del(DRAFT_KEY);
+  state.done = true; state.doneName = name; state.error = false;
+  render(true);
+}
+
+/* =====================================================================
+   PARTAGE
+   ===================================================================== */
+function shareUrl(){
+  return (location.origin && location.origin !== 'null') ? location.origin + location.pathname : location.href.split(/[?#]/)[0];
+}
+let toastTimer;
+function toast(t){
+  const el = document.getElementById('toast');
+  el.textContent = t; el.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => el.classList.remove('show'), 2400);
+}
+async function copyLink(url){
+  try{
+    await navigator.clipboard.writeText(url);
+    toast('Lien copié 💌');
+  }catch(e){
+    try{
+      const ta = document.createElement('textarea');
+      ta.value = url; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      const ok = document.execCommand('copy');
+      document.body.removeChild(ta);
+      if (ok){ toast('Lien copié 💌'); return; }
+    }catch(e2){}
+    window.prompt('Copie le lien :', url);
+  }
+}
+async function share(){
+  const url = shareUrl();
+  if (navigator.share){
+    try{
+      await navigator.share({title:'Candidature au poste de petit ami', text:'Tu postules ? 💌 Formulaire de candidature au poste de petit ami :', url:url});
+      return;
+    }catch(err){
+      if (err && err.name === 'AbortError') return;
+    }
+  }
+  copyLink(url);
+}
+document.getElementById('shareBtn').addEventListener('click', share);
+
+render(false);
+})();
+</script>
+</body>
+</html>
